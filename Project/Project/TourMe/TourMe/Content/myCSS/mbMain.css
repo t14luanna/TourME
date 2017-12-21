@@ -1,0 +1,442 @@
+* {
+    box-sizing: border-box;
+}
+
+:root {
+    --main-bg-color: white;
+    --main-elbg-color: black;
+    --text-color-1: white;
+    --text-color-2: black;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+.tmap {
+    height: 100vh;
+    width: 100%;
+}
+
+.tpadding {
+    padding: 2% 5% 2% 5%;
+}
+
+.ticon {
+    width: 5em !important;
+}
+
+.tlogo {
+    width: 9em !important;
+    margin-left: 34%;
+}
+
+.tline {
+    margin: 1.5em 0 1.5em 0;
+    width: 60%;
+    height: 1px;
+    background-color: black;
+    margin-left: 17%;
+}
+
+.thide {
+    display: none;
+}
+
+.lineblock {
+    padding: 1em;
+    width: 100%;
+    min-height: 3em;
+    background-color: azure;
+    cursor: pointer;
+    font-size: 4em;
+}
+
+.timgage-cirle {
+    border-radius: 50%;
+    width: 7.6em;
+    height: 7.6em;
+}
+
+
+/*-----Scroll--------*/
+
+::-webkit-scrollbar {
+    width: 2px;
+    height: 6px;
+}
+
+
+/* Track */
+
+
+/*
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+*/
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 1);
+    -webkit-box-shadow: inset 2px 2px 6px rgba(255, 255, 255, 1);
+}
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(255, 255, 255, 1);
+    }
+
+
+/*------EndScroll-------*/
+
+.tcontainer {
+    width: 100%;
+    min-height: 9em;
+    background-color: blue;
+    position: absolute;
+    top: 0;
+    z-index: 2;
+}
+
+
+/*------tNav------*/
+
+.tnav {
+    width: 100%;
+    height: 9em;
+    background-color: black;
+    float: left;
+}
+
+.tnav-btn {
+    width: 7em;
+    height: 7em;
+    background-color: transparent;
+    border: none;
+}
+
+.thamburgerIcon {
+    float: left;
+}
+
+    .thamburgerIcon > img {
+    }
+
+.tsearchIcon {
+    float: right;
+}
+
+    .tsearchIcon > img {
+    }
+
+
+/*-----EndtNav------*/
+
+.tsearch-div {
+    width: 100%;
+    min-height: 16em;
+    background-color: bisque;
+    float: left;
+}
+
+.tsearch-input {
+    width: 100%;
+    height: 8em;
+    background-color: white;
+    float: left;
+}
+
+    .tsearch-input > input {
+        width: 100%;
+        height: 100%;
+        border: none;
+        font-size: 3em;
+    }
+
+.tsearch-pick {
+    width: 100%;
+    min-height: 8em;
+    background-color: white;
+    float: left;
+}
+
+.tsearch-kind {
+    width: 100%;
+    height: 8em;
+    background-color: black;
+    float: left;
+    overflow-x: scroll;
+    overflow-y: hidden;
+}
+
+.tul-kind {
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+}
+
+    .tul-kind > li {
+        margin-left: 4em;
+    }
+
+    .tul-kind > img {
+    }
+
+.tsearch-placeKinds {
+    min-height: 8em;
+    max-height: inherit;
+    min-width: 200%;
+    background-color: black;
+}
+
+.tsearch-result {
+    width: 100%;
+    background-color: white;
+    float: left;
+    border-top: 1px solid black;
+}
+
+.tsearch-results {
+    font-size: 3em;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+    .tsearch-results > li {
+        padding: 0.5em 5%;
+        -webkit-box-shadow: -1px 0px 17px 0px rgba(0, 0, 0, 0.75);
+        -moz-box-shadow: -1px 0px 17px 0px rgba(0, 0, 0, 0.75);
+        box-shadow: -1px 0px 17px 0px rgba(0, 0, 0, 0.75);
+    }
+
+.clear {
+    clear: both;
+}
+
+
+/*------SideContainer------*/
+
+
+/*--Content--*/
+
+.tsideContainer {
+    width: 53em;
+    height: 100%;
+    background-color: black;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 3;
+}
+
+.tsideContent {
+    width: 43em;
+    height: 100%;
+    background-color: white;
+    float: left;
+}
+
+.tsideContent-user {
+    padding: 3% 3.5%;
+    width: 100%;
+    height: 10em;
+    background-color: black;
+    float: left;
+}
+
+    .tsideContent-user > img {
+        width: 7em;
+        height: 7em;
+        top: 0.5em;
+        float: left
+    }
+
+    .tsideContent-user > h4 {
+        font-size: 4em;
+        float: left;
+        color: white;
+        margin: .3em 0 0 0.5em;
+    }
+
+.tsideContent-content {
+    max-width: 100%;
+    min-height: 91%;
+    background-color: white;
+    margin-top: 10em;
+    overflow: scroll;
+    padding: 3% 3.5%;
+}
+
+
+/*--EndContent--*/
+
+
+/*--functions--*/
+.tsideFunctions {
+    width: 10em;
+    height: 100%;
+    float: right;
+    background-color: black;
+}
+
+.tsideFunctions-ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+    .tsideFunctions-ul > li {
+        cursor: pointer;
+        padding: 20%;
+        background: transparent;
+    }
+
+        .tsideFunctions-ul > li > img {
+            width: 6em;
+            height: 6em;
+        }
+/*--EndFunctions--*/
+
+
+/*-------EndSideContainer-------*/
+
+
+/*---------Overlay--------*/
+.toverLay {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255,255,255,0.5);
+    position: absolute;
+    z-index: 2;
+    top: 0;
+}
+/*----------EndOverlay-------*/
+
+.address-result {
+    color: grey;
+    font-size: 0.5em;
+}
+
+.tPlaceInfo-img {
+    width: 100%;
+    height: 30%;
+}
+
+.ratingstar {
+    width: 10%;
+}
+
+.tPlaceInfo-Name {
+    font-size: 4em;
+}
+
+.infoblock .ticon {
+    width: 2em !important;
+}
+
+.add-btn {
+    background: none;
+    border: none;
+    float: right;
+}
+
+.add-btn img {
+    width: 64px;
+    height: 64px;
+}
+
+.tsideContent-content{
+    display: none;
+}
+
+.tourBook-content {
+    width: 100%;
+    height: 85vh;
+    background-color: var(--main-bg-color);
+    overflow-y: scroll;
+}
+
+
+.mappingBtn {
+    height: 15vh;
+    width: 100%;
+    text-align: center;
+    border-top: 1px solid black;
+    padding: 0.7em 0 0.7em 0;
+    font-size: 3em;
+}
+
+.mappingBtn:hover {
+    cursor: pointer;
+}
+
+.content__wrapper {
+    font-size: 0.9em;
+    text-align: left;
+    border-radius: 5px;
+    width: 100%;
+    padding: 1.2em 1.2em 1.5em 1.2em;
+    background-color: white;
+}
+
+.text-color {
+    width: 100%;
+    text-align: center;
+    padding-bottom: 20px;
+    font-weight: 700;
+    font-size: 3em;
+}
+
+.eventBlock {
+    padding: 1em;
+    width: 100%;
+    min-height: 3em;
+    background-color: azure;
+    cursor: pointer;
+    font-size: 2em;
+}
+
+.nearby-list{
+    overflow-y: scroll;
+    height: 100vh;
+}
+
+.graybg {
+    background-color: gray;
+}
+
+.direction-content {
+    height: 90vh;
+    overflow-y: scroll;
+    padding: 3em;
+}
+
+.lineblock span{
+    font-size: 0.6em;
+    font-weight: 700;
+}
+
+.deleteTourBookLine{
+    float: right;
+    width: 64px;
+}
+
+.tPlaceInfo-address{
+    font-size: 2em;
+}
+
+.tPlaceInfo-contact {
+    font-size: 2em;
+}
+
+.tPlaceInfo-comment {
+    font-size: 2em;
+}

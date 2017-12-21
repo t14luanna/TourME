@@ -1,0 +1,231 @@
+﻿@*@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+</head>
+<body>
+
+    <div id="example">
+        <div id="grid"></div>
+
+        <script>
+            $(document).ready(function () {
+                var crudServiceBaseUrl = "",
+                    dataSource = new kendo.data.DataSource({
+                        transport: {
+                            read: {
+                                url: crudServiceBaseUrl + "/api/User/Get",
+                                dataType: "json"
+                            },
+                            update: {
+                                url: crudServiceBaseUrl + "/api/User/Update",
+                                type: "POST",
+                                dataType: "json",
+                                complete: function (e) {
+                                    $("#grid").data("kendoGrid").dataSource.read();
+                                }
+                            },
+                            destroy: {
+                                url: crudServiceBaseUrl + "/api/User/Destroy",
+                                type: "POST",
+                                dataType: "json",
+                                complete: function (e) {
+                                    $("#grid").data("kendoGrid").dataSource.read();
+                                }
+                            },
+                            create: {
+                                url: crudServiceBaseUrl + "/api/User/Create",
+                                type: "POST",
+                                dataType: "json",
+                                complete: function (e) {
+                                    $("#grid").data("kendoGrid").dataSource.read();
+                                }
+                            },
+                            parameterMap: function (options, operation) {
+                                if (operation !== "read" && options.models) {
+                                    for (var i in options.models[0]) {
+                                        if (!isNaN(options.models[0][i])) {
+                                            if (options.models[0][i] instanceof Date) {
+                                                options.models[0][i] = options.models[0][i].toISOString();
+                                            }
+                                        }
+                                    }
+                                    tmp = options.models[0];
+                                    return options.models[0];
+                                }
+                            }
+                        },
+                        batch: true,
+                        pageSize: 20,
+                        schema: {
+                            model: {
+                                id: "Id",
+                                fields: {
+                                    Id: { editable: false, nullable: false, defaultValue: -1},
+                                    Username: { editable: true, nullable: false, validation: {required: true} },
+                                    Password: { editable: true, nullable: false, validation: { required: true } },
+                                    ImageId: { editable: true, validation: { required: true } },
+                                    Email: { editable: true},
+                                    isEnable: { editable: true, type: "boolean", validation: { required: true } },
+                                    DateCreate: { editable: false, type: "date"},
+                                    DateUpdate: { editable: false, type: "date"},
+                                    Role: { editable: true, type: "number" }
+                                }
+                            }
+                        }
+                    });
+
+                $("#grid").kendoGrid({
+                    dataSource: dataSource,
+                    pageable: true,
+                    height: 600,
+                    toolbar: ["create"],
+                    columns: [
+                        { field: "Id", title: "Id", width: "70px" },
+                        { field: "Username", title: "Username", width: "120px" },
+                        { field: "Password", title: "Password", width: "150px" },
+                        { field: "ImageId", title:"ImageId", width: "100px" },
+                        { field: "Email", title: "Email", width: "100px" },
+                        { field: "isEnable", title: "isEnable ", width: "120px" },
+                        { field: "Role", title: "Role ", width: "100px" },
+                        { field: "DateCreate", title: "DateCreate ", width: "100px" },
+                        { field: "DateUpdate", title: "DateUpdate ", width: "100px" },
+                        { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }],
+                    editable: {
+                        mode: "popup",
+                        template: $("#template").html()
+                    },
+                });
+            });
+
+            function customBoolEditor(container, options) {
+                $('<input class="k-checkbox" type="checkbox" name="Discontinued" data-type="boolean" data-bind="checked:Discontinued">').appendTo(container);
+                $('<label class="k-checkbox-label">&#8203;</label>').appendTo(container);
+            }
+        </script>
+        <script type="text/x-kendo-template" id="template">
+            #if(data.isNew()) {#
+            #var createTemp = kendo.template($("\#createTemplate").html());#
+            #=createTemp(data)#
+            #} else {#
+            #var createTemp = kendo.template($("\#editTemplate").html());#
+            #=createTemp(data)#
+            #}#
+        </script>
+        <script type="text/x-kendo-template" id="createTemplate">
+            <div class="k-edit-label">
+                <label for="Id">Id</label>
+            </div>
+            <div class="k-input">
+                <input id="Id" type="number" style="margin-left:10px" data-bind="value:Id" disabled="disabled">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="Username">Username</label>
+            </div>
+            <div class="k-input">
+                <input id="Username" style="margin-left:10px" data-bind="value:Username">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="Password">Password</label>
+            </div>
+            <div class="k-input">
+                <input id="Password" style="margin-left:10px" data-bind="value:Password">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="ImageId">ImageId</label>
+            </div>
+            <div class="k-input">
+                <input id="ImageId" type="number" style="margin-left:10px" data-bind="value:ImageId" min="0">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="Email">Email</label>
+            </div>
+            <div class="k-input">
+                <input id="Email" style="margin-left:10px" data-bind="value:Email">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="isEnable">isEnable</label>
+            </div>
+            <div class="k-input">
+                <input id="isEnable" type="checkbox" style="margin-left:10px" data-bind="value:isEnable">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="Role">Role</label>
+            </div>
+            <div class="k-input">
+                <input id="Role" type="number" style="margin-left:10px" data-bind="value:Role" min="0" max="4">
+            </div>
+        </script>
+        <script type="text/x-kendo-template" id="editTemplate">
+            <div class="k-edit-label">
+                <label for="Id">Id</label>
+            </div>
+            <div class="k-input">
+                <input id="Id" type="number" style="margin-left:10px" data-bind="value:Id" disabled="disabled">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="Username">Username</label>
+            </div>
+            <div class="k-input">
+                <input id="Username" style="margin-left:10px" data-bind="value:Username">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="Password">Password</label>
+            </div>
+            <div class="k-input">
+                <input id="Password" style="margin-left:10px" data-bind="value:Password">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="ImageId">ImageId</label>
+            </div>
+            <div class="k-input">
+                <input id="ImageId" type="number" style="margin-left:10px" data-bind="value:ImageId" min="0">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="Email">Email</label>
+            </div>
+            <div class="k-input">
+                <input id="Email" style="margin-left:10px" data-bind="value:Email">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="isEnable">isEnable</label>
+            </div>
+            <div class="k-input">
+                <input id="isEnable" type="checkbox" style="margin-left:10px" data-bind="value:isEnable">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="Role">Role</label>
+            </div>
+            <div class="k-input">
+                <input id="Role" type="number" style="margin-left:10px" data-bind="value:Role" min="0" max="4">
+            </div>
+        </script>
+    </div>
+
+
+
+</body>
+</html>*@

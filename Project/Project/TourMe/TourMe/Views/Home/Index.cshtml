@@ -1,0 +1,235 @@
+﻿@{
+    Layout = null;
+}
+
+<html lang="en">
+
+<head>
+    <meta charset="utf">
+    <title>TourME</title>
+    <!------<link rel="icon" href="@Url.Content("~/Images/favicon.ico")">------>
+    <link rel="icon" href="@Url.Content("~/Asset/Images/favicont.ico")">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, maximum-scale=2, minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:description" content="This is website to introduce place and create tour by yourself">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!------Cassading style sheet-------->
+    <link rel="stylesheet" href="@Url.Content("~/Content/myCSS/jquery-ui-1.12.1/jquery-ui.min.css")" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/myCSS/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.min.css")">
+
+    <link rel="stylesheet" href="@Url.Content("~/Content/myCSS/Main.css")">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="advertisement" id="advertisement">
+        <div class="ad-content" style="background-image:url(../../Asset/Images/banner.PNG); background-repeat:no-repeat; background-size:cover">
+            <span class="close">&times;</span>
+        </div>
+    </div>
+
+    <div id="tmainMap" class="tmap"></div>
+
+    <section for="leftDiv">
+        <div id="navLeftDiv" class="navLeftDiv" onclick="switchDiv('leftDiv')">
+            Search<img src="../Asset/Icons/navicon.png">
+        </div>
+
+        <div id="navLeftDivAboutUs" class="navLeftDivAboutUs" onclick="goToAboutUs()">
+            AboutUs<img src="../Asset/Icons/navicon.png">
+        </div>
+        
+
+        <div id="leftDiv" class="leftDiv">
+
+            <div id="searchDiv" class="searchDiv ui-widget">
+                <div class="tSearchInput">
+                    <input id="tags" type="text" placeholder="Tim dia diem, nha hang, du lich" />
+                    <img class="tSearchIcon" src="../Asset/Icons/search.png" />
+                </div>
+                <ul id="searchUl"></ul>
+            </div>
+            <div class="searchDiv-kinds">
+                <ul>
+                    <li onclick="changeKind(-1)"><img id="k0" class="searchDiv-kindIcon" src="../Asset/Icons/close.png" /></li>
+                    <li onclick="changeKind(3)"><img id="k0" class="searchDiv-kindIcon" src="../Asset/Icons/Cafe_default.png" /></li>
+                    <li onclick="changeKind(4)"><img id="k0" class="searchDiv-kindIcon" src="../Asset/Icons/Hotel_default.png" /></li>
+                    <li onclick="changeKind(5)"><img id="k0" class="searchDiv-kindIcon" src="../Asset/Icons/Market_default.png" /></li>
+                    <li onclick="changeKind(7)"><img id="k0" class="searchDiv-kindIcon" src="../Asset/Icons/Point_of_interested_default.png" /></li>
+                    <li onclick="changeKind(14)"><img id="k0" class="searchDiv-kindIcon" src="../Asset/Icons/Restaurant_default.png" /></li>
+                </ul>
+            </div>
+            <button class="closeLeftDiv" onclick="switchDiv('leftDiv')"><img src="../Asset/Icons/closeicon.png" /></button>
+            <div class="tSearchContent">
+                <div class="tPlaceInfo">
+                    <img class="tPlaceInfo-img" src="../Asset/Images/ho-chi-minh-city-vietnam_71471_990x742.jpg" />
+                    <div class="tPlaceInfo-Name">
+                        Ho Chi Minh
+                    </div>
+                    <div class="tPlaceInfo-Type">
+                        <div class="divRatingStar">
+                            <img class="ratingstar" src="../Asset/Icons/star.png">
+                            <img class="ratingstar" src="../Asset/Icons/star.png">
+                            <img class="ratingstar" src="../Asset/Icons/star.png">
+                            <img class="ratingstar" src="../Asset/Icons/star.png">
+                            <img class="ratingstar" src="../Asset/Icons/star.png">
+                        </div>
+                    </div>
+
+                    <section class="wrapper">
+                        <ul class="tabs">
+                            <li class="info-tab active">Thông tin</li>
+                            <li>Sự kiện</li>
+                            <li class="nearby-tab">Liên quan</li>
+                        </ul>
+
+                        <ul class="tab__content">
+                            <li class="active info-tab">
+                                <div class="content__wrapper">
+                                    <div class="tPlaceInfo-address infoblock">
+                                        <img class="ticon" src="../Asset/Icons/marker.png" />&nbsp; <span>Viet Nam</span>
+                                    </div>
+                                    <div class="tPlaceInfo-contact infoblock">
+                                        <img class="ticon" src="../Asset/Icons/Phone.png" />&nbsp; <span></span>
+                                    </div>
+                                    <div class="tPlaceInfo-contact infoblock">
+                                        <b>Min price: </b><span id="minPrice">15.000</span>&nbsp;-&nbsp;<b>Max price: </b><span id="maxPrice">100.000.000</span>
+                                    </div>
+                                    <div class="tPlaceInfo-contact infoblock">
+                                        <img class="ticon" src="../Asset/Icons/link.png" />&nbsp;
+                                        <a href="http://www.hcm.org">www.hcm.org</a>
+                                    </div>
+                                    <div class="tPlaceInfo-description infoblock">
+                                        <span></span>
+                                    </div>
+                                    <div class="tline"></div>
+                                    <div class="tPlaceInfo-comment infoblock">
+                                        Danh gia cua nguoi dung: <br /> <span></span>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="content__wrapper">
+                                    <div class="eventBlock graybg" onclick="openDetail('#ed1')">
+                                        Le Hoi Canival
+                                        <div class="eventDate">22/12/2017</div>
+                                        <div id="ed1" class="eventDetail">asdasda adasda asda sda dawd asdas dasda asda d a</div>
+                                    </div>
+                                    <div class="eventBlock" onclick="openDetail('#ed2')">
+                                        Le Hoi Canival
+                                        <div class="eventDate">22/12/2017</div>
+                                        <div id="ed2" class="eventDetail">asdasda adasda asda sda dawd asdas dasda asda d a</div>
+                                    </div>
+                                    <div class="eventBlock graybg">
+                                        Le Hoi Canival
+                                        <div class="eventDate">22/12/2017</div>
+                                        <div class="eventDetail">asdasda adasda asda sda dawd asdas dasda asda d a</div>
+                                    </div>
+                                    <div class="eventBlock">
+                                        Le Hoi Canival
+                                        <div class="eventDate">22/12/2017</div>
+                                        <div class="eventDetail">asdasda adasda asda sda dawd asdas dasda asda d a</div>
+                                    </div>
+
+
+                                </div>
+                            </li>
+                            <li class="nearby-tab">
+                                <h2 class="text-color">Các địa điểm gần đây</h2>
+                                <div class="content__wrapper nearby-list">
+                                    
+                                </div>
+                            </li>
+                        </ul>
+                    </section>
+                    @*<div class="fb-comments" id="fb-comments" data-width="100%" data-href="" data-numposts="5"></div>*@
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section for="rightDiv">
+        <div id="navrightDiv-tourBook" class="navrightDiv-tourBook" onclick="switchDiv('rightDiv-tourBook')">
+            Tour Book<img src="../Asset/Icons/book.png" />
+        </div>
+        <div id="rightDiv-tourBook" class="rightDiv-tourbook">
+            <button class="closerightDiv-tourBook" onclick="switchDiv('rightDiv-tourBook')">
+                <img src="../Asset/Icons/closeicon.png" />
+            </button>
+            <div id="tourBook-nav" class="tourBook-nav">
+                <button class="fbBtn" id="fbBtn"><img src="~/Asset/Icons/fb_btn.png"/></button>
+                @*<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">*@
+                @*</fb:login-button >*@
+            </div>
+            <div id="tourBook-content" class="tourBook-content">
+            </div>
+            <div id="mappingBtn" class="mappingBtn"><span>MAPPING</span></div>
+        </div>
+
+        <div id="navrightDiv-direction" class="navrightDiv-direction" onclick="switchDiv('rightDiv-direction')">
+            Direction<img src="../Asset/Icons/direction.png">
+        </div>
+        <div id="rightDiv-direction" class="rightDiv-direction" onclick="switch('rightDiv-direction')">
+            <button class="closerightDiv-direction" onclick="switchDiv('rightDiv-direction')">
+                <img src="../Asset/Icons/closeicon.png" />
+            </button>
+            <div id="direction-nav" class="direction-nav">Direction</div>
+            <div id="direction-content" class="direction-content"></div>
+        </div>
+    </section>
+
+    <div id="status">
+    </div>
+
+    <!------Script------->
+    <!------jQuery------>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/jquery-3.2.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/myScript/jquery-ui-1.12.1/jquery-ui.js")"></script>
+
+    <!------Facebook API------>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/facebookAPI/facebook-log-in.js")"></script>
+
+    <!------Google API------>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDf-ximzEUCztn0WjKx3aV3VkFBF7s1jNI&&libraries=places"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/googleAPI/map-create.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/googleAPI/direction.js")"></script>
+
+    <!------Autocomplete------>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/autocomplete/autocomplete.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/autocomplete/autocomplete-search.js")"></script>
+
+    <!--NearBy-->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/nearby/nearby-search.js")"></script>
+
+    <!------DAO------>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/DAO/placeDAO.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/DAO/imageDAO.js")"></script>
+
+
+    <!------Set View------>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/view/set-content-choice.js")"></script>
+
+    <!--Popup-->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/Popup/popup.js")"></script>
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/Main.js")"></script>
+
+    <!------ Trip book ------>
+    <script>
+        @{
+            String tripBookName = "TripBook";
+
+            if (@Request.Cookies[tripBookName] == null)
+            {
+
+                HttpCookie tripBook = new HttpCookie(tripBookName);
+                tripBook.Expires = DateTime.MaxValue;
+                Response.Cookies.Add(tripBook);
+            }
+        }
+    </script>
+
+</body>
+</html>

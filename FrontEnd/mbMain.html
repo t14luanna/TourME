@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/mbMain.css">
+    <link rel="stylesheet" href="src/jquery-ui-1.12.1/jquery-ui.css" />
+</head>
+
+<body>
+    <div id="tmainMap" class="tmap"></div>
+    <div class="tcontainer">
+        <div class="tnav tpadding">
+            <button id="thamburgerIcon" class="thamburgerIcon tnav-btn"><img src="../Asset/Icons/collapse_background.png" class="ticon"/></button>
+            <img class="tlogo" src="../Asset/Images/logoWhite.png"/>
+            <button id="tsearchIcon" class="tsearchIcon tnav-btn"><img src="../Asset/Icons/search.png" class="ticon"/></button>
+        </div>
+        <div id="tsearch-div" class="tsearch-div">
+            <div class="tsearch-input tpadding">
+                <input type="text" placeholder="Tên địa điểm, địa chỉ, ..." />
+            </div>
+            <div class="tsearch-pick">
+                <div class="tsearch-kind">
+                    <div class="tsearch-placeKinds tpadding">
+                        <ul class="tul-kind">
+                            <li style="margin: 0"><img class="ticon" src="../Asset/Icons/restaurant_default.png"/></li>
+                            <li><img class="ticon" src="../Asset/Icons/cafe_default.png"/></li>
+                            <li><img class="ticon" src="../Asset/Icons/point_of_interest_default.png"/></li>
+                            <li><img class="ticon" src="../Asset/Icons/lodging_default.png"/></li>
+                            <li><img class="ticon" src="../Asset/Icons/market_default.png"/></li>
+                            <li><img class="ticon" src="../Asset/Icons/output-23.png"/></li>
+                            <li><img class="ticon" src="../Asset/Icons/output-25.png"/></li>
+                            <li><img class="ticon" src="../Asset/Icons/output-27.png"/></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tsearch-result">
+                    <ul class="tsearch-results">
+                        <li>abc</li>
+                        <li>def</li>
+                    </ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    
+    <div id="tsideContainer" class="tsideContainer thide">
+        <div class="tsideContent">
+            <div class="tsideContent-user">
+                <img class="timgage-cirle" src="../Asset/Images/1st-Place-Francisco-Negroni-Rodriguez-Chile.jpg"/>
+                <h4>Hello</h4>
+            </div>
+            <div class="tsideContent-content"></div>
+            <div class="clear"></div>
+        </div>
+        <div class="tsideFunctions">
+            <ul class="tsideFunctions-ul">
+                <li id="closeSideContainer"><img class="tsideFunctions-functions" src="../Asset/Icons/closeicon.png"/></li>
+                <li><img class="tsideFunctions-functions" src="../Asset/Icons/user.png"/></li>
+                <li><img class="tsideFunctions-functions" src="../Asset/Icons/book.png"/></li>
+                <li><img class="tsideFunctions-functions" src="../Asset/Icons/direction.png"/></li>
+                <li><img class="tsideFunctions-functions" src="../Asset/Icons/info.png"/></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+    
+    <div id="toverlay" class="toverLay thide"></div>
+
+    <script type="text/javascript" src="src/jquery-3.2.1.min.js"></script>
+    <script src="src/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAlFgrrMbkJAOVTXffgqnV6syXZ1A8yaq8&&libraries=places"></script>
+    <script src="js/google-map-api.js"></script>
+    <script src="js/google-map-direction-api.js"></script>
+    <script src="js/google-map-nearby-api.js"></script>
+    <script src="js/google-map-autocomplete-api.js"></script>
+    <script src="js/Main.js"></script>
+    <script src="js/mbMain.js"></script>
+
+</body>
+
+</html>

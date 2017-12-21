@@ -1,0 +1,380 @@
+@import 'https://fonts.googleapis.com/css?family=Asap+Condensed';
+:root {
+    --text-color: white;
+}
+
+body {
+    margin: 0;
+    font-family: 'Asap Condensed', sans-serif;
+}
+
+
+/*Left Side*/
+
+.tLeftSide {
+    position: absolute;
+    z-index: 1;
+    width: 25em;
+    height: 100%;
+    background-image: url('../../Asset/Images/background.png');
+    opacity: 0.94;
+}
+
+
+/*search form*/
+
+.search-body {
+    background-color: black;
+    width: 100%;
+    height: 2.5em;
+}
+
+.search-body input {
+    width: 86%;
+    height: 100%;
+    margin-left: 1em;
+    background-color: inherit;
+    border-radius: 0;
+    border: none;
+    font-size: 1em;
+    color: var(--text-color);
+    font-weight: bold;
+    font-family: 'Asap Condensed', sans-serif;
+}
+
+.search-body input::placeholder {
+    color: var(--text-color);
+}
+
+
+/*Near By PLace*/
+
+.nearby-body {
+    width: 100%;
+    height: 43%;
+    padding: 0;
+    /*  border-top: 1px solid black;*/
+}
+
+.nearby-body h2 {
+    height: 1.4em;
+    margin: 0;
+    color: var(--text-color);
+    text-align: center;
+    margin: 0.2em 0 0.2em 0;
+    background-color: black;
+    padding-top: 0.2em;
+}
+
+.nearby-body ul {
+    list-style-type: none;
+    padding: 0;
+    overflow-y: scroll;
+    height: 100%;
+    margin: 0;
+}
+
+.nearby-body li {
+    color: var(--text-color);
+    height: auto;
+    overflow: hidden;
+    padding: 1em;
+    -webkit-box-shadow: -3px -15px 19px -16px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: -3px -15px 19px -16px rgba(0, 0, 0, 0.75);
+    box-shadow: -3px -15px 19px -16px rgba(0, 0, 0, 0.75);
+}
+
+#more {
+    width: 100%;
+    height: 3em;
+    background-color: inherit;
+    border: none;
+    border-top: 1px solid white;
+    border-radius: none;
+    padding: 0;
+    margin: 0;
+    color: var(--text-color);
+}
+
+.nearby-content {
+    width: 80%;
+    display: inline-block;
+}
+
+.nearby-body .title {
+    margin-top: 0.2em;
+    margin-bottom: 0.2em;
+}
+
+.nearby-body .address {
+    font-size: 0.8em;
+}
+
+.add-button {
+    float: right;
+    background: white;
+    border: none;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+}
+
+.gm-style-cc {
+    display: none;
+}
+
+
+/*Map*/
+
+.tmainMap {
+    height: 100%;
+    width: 100%;
+}
+
+
+/*choice place*/
+
+.tRightSide {
+    height: 19.9em;
+    width: 20em;
+    /*    top: 5%;*/
+    position: absolute;
+    right: 0;
+    background-image: url('../../Asset/Images/background.png');
+    z-index: 1;
+}
+
+.tRightSide h2 {
+    background: black;
+    padding-top: 0.2em;
+    height: 1.42em;
+    margin: 0;
+    color: var(--text-color);
+    text-align: center;
+    /*    margin: 0.15em 0 0.15em 0;*/
+    border-bottom: 1px solid black;
+}
+
+.tRightSide ul {
+    height: 75%;
+    color: var(--text-color);
+    list-style-type: none;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    overflow-y: scroll;
+}
+
+.tRightSide li {
+    border-bottom: 1px solid black;
+    padding: 1em;
+}
+
+.tRightSide li h3 {
+    margin: 0;
+}
+
+.tRightSide .mapping-btn {
+    width: 100%;
+    height: 13%;
+    border: none;
+    border-top: 0.1px solid white;
+    background-color: inherit;
+    color: var(--text-color);
+    font-weight: 600;
+}
+
+.del-button {
+    float: right;
+    background: white;
+    border: none;
+    border-radius: 100%;
+    width: 32px;
+    height: 32px;
+    display: inline-block;
+}
+
+.choice-component div {
+    width: 75%;
+    display: inline-block;
+}
+
+.directions-side {
+    height: 18.3em;
+    width: 20em;
+    top: 50%;
+    position: absolute;
+    right: 0;
+    background-image: url('../../Asset/Images/background.png');
+    z-index: 1;
+    color: var(--text-color);
+    padding-top: 1em;
+}
+
+#directions-panel {
+    height: 95%;
+    overflow-y: scroll;
+}
+
+.stage {
+    padding-left: 1em;
+    border-bottom: 1px solid black;
+    margin-top: 1em;
+}
+
+.directions-side h3,
+.directions-side h4 {
+    margin: 0;
+}
+
+
+/*Button Collapse*/
+
+.collapse {
+    position: absolute;
+    border: none;
+    height: 3em;
+    width: 3em;
+    background-color: inherit;
+    top: 0;
+}
+
+.collapse-left {
+    left: -3em;
+    border-right: 1px solid black;
+    background: black;
+    color: white;
+}
+
+.collapse-right {
+    left: 30em;
+    background-color: black;
+    color: white;
+    right: 0;
+    /*    border-left: 1px solid black;*/
+}
+
+.directions-side .collapse {
+    border-bottom: 0.1px solid black;
+}
+
+.collapse-out {
+    width: auto;
+    height: auto;
+    border: none;
+    font-size: 1em;
+    padding: 0.5em;
+    color: var(--text-color);
+    position: absolute;
+    background-image: url('../../Asset/Images/background.png');
+    z-index: 1;
+    display: none;
+}
+
+.collapse-out-left {
+    background: black;
+    transform: rotate(-90deg);
+    right: -1.5em;
+    top: 2em;
+}
+
+.collapse-out-right {
+    background: black;
+    transform: rotate(90deg);
+    left: -1.5em;
+    top: 2em;
+}
+
+#directions-side {
+    top: 60%;
+    right: -2em;
+}
+
+.filter {
+    width: 100%;
+    height: auto;
+}
+
+.filter ul {
+    list-style-type: none;
+    margin: 0 0 0 0.3em;
+    /*    border-top: 0.1px solid black;*/
+    padding: 0;
+    width: 100%;
+}
+
+.filter li {
+    display: inline-block;
+    width: 10.5%;
+    height: 1em;
+    padding: 0.5em 0.1em 0.5em 0.1em;
+    /*    border-right: 0.1px solid black;*/
+    text-align: center;
+}
+
+.filter button {
+    border: none;
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+}
+
+
+/*info-content*/
+
+.info-content {
+    width: 92%;
+    height: 30%;
+    padding: 0.5em 1em 0.2em 1em;
+    color: var(--text-color);
+    word-wrap: break-word;
+    overflow-y: scroll;
+    /*  border-top: 1px solid black;*/
+}
+
+
+/*Tien UX-UI*/
+
+
+/* Let's get this party started */
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 1);
+    -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0.5);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255, 255, 255, 0.4);
+}
+
+.icon {
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.directions-side h2 {
+    background: black;
+    margin: -0.65em 0 0 0;
+    height: 1.36em;
+    padding-top: 0.3em;
+    text-align: center;
+}

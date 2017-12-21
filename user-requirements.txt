@@ -1,0 +1,61 @@
+
+
+// As a guest, 
+
+I want to Sign up by email, g+, fb
+
+
+I want to Log in by email, g+, fb
+
+I want to Search place by keywords, tags
+
+
+I want to Mapping Directories by places
+
+// As a user,
+
+
+I want to save my mapped tours
+
+
+I want to save saved places
+
+
+I want to like, comment, share to fb, g+
+
+
+I want to check-in to fb, g+
+
+
+I want to add and share place I known with everybody
+
+
+I want to give money to push rank for my place
+
+
+I want to give a opinion for place
+
+//As a moderate,
+
+
+I want to add new place 
+
+
+I want to edit old place
+
+
+I want to check place add by user
+
+//As a admin, 
+
+
+I want to add point, add view for place
+
+//As a system,
+
+I want to save search value, mapped tour
+
+Home load thi thay 1 ban do,
+su dung API de hien thi cac marker (long, lat)
+handle markers thong qua partial view ( theo format roundme.com)
+direction waypoint

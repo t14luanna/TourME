@@ -1,0 +1,780 @@
+:root {
+    --main-bg-color: white;
+    --main-elbg-color: black;
+    --text-color-1: white;
+    --text-color-2: black;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    margin: 0;
+}
+
+.tmap {
+    height: 100vh;
+    width: 100%;
+}
+
+.ticon {
+    width: 1em !important;
+}
+
+.tline {
+    margin: 1.5em 0 1.5em 0;
+    width: 60%;
+    height: 1px;
+    background-color: black;
+    margin-left: 17%;
+}
+
+.lineblock {
+    padding: 1em;
+    width: 100%;
+    min-height: 3em;
+    background-color: azure;
+    cursor: pointer;
+}
+
+
+/*-----Scroll--------*/
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+
+/* Track */
+
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 1);
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+}
+
+
+/* Handle */
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 1);
+    -webkit-box-shadow: inset 0 0 6px rgba(255, 255, 255, 0);
+}
+
+::-webkit-scrollbar-thumb:window-inactive {
+    background: rgba(255, 255, 255, 1);
+}
+
+
+/*-------EndScroll-------*/
+
+
+/*------WidthScreen-------*/
+
+@media only screen and (min-width: 600px) {
+    /*-------Left Div-------*/
+    .navLeftDiv {
+        position: absolute;
+        background-color: black;
+        color: white;
+        padding: 0 0.4em 0.4em 0.4em;
+        z-index: 0;
+        top: 2.2em;
+        left: -1.2em;
+        transform: rotate(90deg);
+        cursor: pointer;
+    }
+    .navLeftDiv>img {
+        position: relative;
+        top: 0.4em;
+    }
+    .navLeftDiv-AboutUs {
+        position: absolute;
+        background-color: black;
+        color: white;
+        padding: 0.4em 1em 0.4em 0.4em;
+        z-index: 0;
+        top: 9em;
+        left: -1.6em;
+        transform: rotate(90deg);
+        cursor: pointer;
+    }
+    .navLeftDiv-AboutUs>img {
+        position: relative;
+        top: 0.1em;
+        width: 1em;
+        left: 0.3em;
+    }
+    .leftDiv {
+        top: 0;
+        position: absolute;
+        width: 29em;
+        height: 94.6%;
+    }
+    .closeLeftDiv {
+        position: absolute;
+        left: 34.8em;
+        top: 0em;
+        width: 3.2em;
+        height: 3.2em;
+        background-color: black;
+        border: none;
+        color: white;
+        display: block;
+        transition: all 500ms ease-in-out;
+    }
+    .closingleftDiv {
+        display: none;
+    }
+    .searchDiv {
+        width: 99.8%;
+        height: 2.6em;
+        background-color: black;
+    }
+    .tSearchInput {
+        margin: 0.5em 0 0 1em;
+        font-size: 1em;
+        border: none;
+        padding: 0.2em;
+        width: 24em;
+    }
+    .tSearchIcon {
+        position: relative;
+        top: 0.5em;
+        margin-left: 0.7em;
+    }
+    .tSearchContent {
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        overflow-y: scroll;
+    }
+    /*------PlaceInfo-------*/
+    .tPlaceInfo {
+        width: 100%;
+        height: 36.7em;
+        background-color: white;
+    }
+    .tPlaceInfo-img {
+        width: 100%;
+    }
+    .tPlaceInfo-Name {
+        font-size: 1.5em;
+        font-weight: bold;
+        padding: 0.6em 0.6em 0 0.6em;
+    }
+    .tPlaceInfo-Type {
+        padding: 0 0.6em 0 1em;
+    }
+    .divRatingStar {
+        width: 7em;
+        margin: 0;
+        float: right;
+    }
+    .ratingstar {
+        width: 1em;
+        height: 1em;
+    }
+    .tPlaceInfo-info {}
+    .infoblock {
+        padding: 0.5em 0 0.5em 0;
+    }
+    .tPlaceInfo-description {}
+    .tPlaceInfo-comment {}
+    /*-------Event-------*/
+    .eventBlock {
+        padding: 1em;
+        width: 100%;
+        min-height: 3em;
+        background-color: azure;
+        cursor: pointer;
+    }
+    .eventDetail {
+        margin: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: all 500ms ease-in-out;
+    }
+    .eventDetail-open {
+        margin-top: 1.2em;
+        height: 10em;
+        overflow: visible;
+        transition: all 500ms ease-in-out;
+    }
+    .graybg {
+        background-color: gray;
+    }
+    .eventDate {
+        margin: 0;
+        width: 5em;
+        float: right;
+    }
+    /*--------EndEvent-------*/
+    /*---------End Place Info--------*/
+    /*---------Tabs-----------*/
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    .bg-color {
+        /*    background-color: #46a1de;*/
+        transition-duration: .5s;
+    }
+    .text-color {
+        color: #46a1de;
+        transition-duration: .5s;
+    }
+    .wrapper {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .tabs {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+        background-color: black;
+    }
+    .tabs>li {
+        transition-duration: .25s;
+        display: table-cell;
+        list-style: none;
+        text-align: center;
+        padding: 10px 5px 10px 5px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        color: grey;
+    }
+    .tabs>li:before {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 120%;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.3);
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        transition-duration: .25s;
+        /*    border-radius: 5px 5px 0 0;*/
+    }
+    .tabs>li:hover:before {
+        -webkit-transform: translateY(70%);
+        transform: translateY(70%);
+    }
+    .tabs>li.active {
+        color: black;
+        font-weight: bold;
+    }
+    .tabs>li.active:before {
+        transition-duration: .5s;
+        background-color: white;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    .tab__content {
+        background-color: white;
+        position: relative;
+        width: 100%;
+        border-radius: 5px;
+    }
+    .tab__content>li {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        list-style: none;
+    }
+    .tab__content>li .content__wrapper {
+        font-size: 0.9em;
+        text-align: left;
+        border-radius: 5px;
+        width: 100%;
+        padding: 1.2em 1.2em 1.5em 1.2em;
+        background-color: white;
+    }
+    .content__wrapper h2 {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 20px;
+        font-weight: 300;
+    }
+    .content__wrapper img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+    /*---------End Tabs-----------*/
+    /*---------End Left Div----------*/
+    /*------------navRightDiv-------------*/
+    /*----------TourBook---------*/
+    .closerightDiv-tourBook {
+        position: absolute;
+        right: 24em;
+        top: 0em;
+        width: 3.2em;
+        height: 3.2em;
+        background-color: black;
+        border: none;
+        color: white;
+        display: block;
+        transition: all 500ms ease-in-out;
+    }
+    .closingrightDiv-tourBook {
+        display: none;
+    }
+    .navrightDiv-tourBook {
+        position: absolute;
+        background-color: black;
+        color: white;
+        padding: 0 0.4em 0.4em 0.5em;
+        z-index: 0;
+        top: 3em;
+        right: -1.8em;
+        transform: rotate(-90deg);
+        cursor: pointer;
+    }
+    .navrightDiv-tourBook>img {
+        width: 1.2em;
+        position: relative;
+        top: 0.1em;
+    }
+    .rightDiv-tourbook {
+        background-color: var(--main-bg-color);
+        right: 0;
+        top: 0;
+        position: absolute;
+        width: 20em;
+        height: 20em;
+        z-index: 1;
+    }
+    .tourBook-nav {
+        color: white;
+        width: 100%;
+        height: 2.67em;
+        background-color: black;
+        text-align: center;
+        padding-top: 0.6em;
+    }
+    .tourBook-content {
+        width: 100%;
+        height: 17.3em;
+        background-color: var(--main-bg-color);
+    }
+    .deleteTourBookLine {
+        float: right;
+    }
+    /*--------EndTourBook---------*/
+    /*---------Direction--------*/
+    .closerightDiv-direction {
+        position: absolute;
+        right: 24em;
+        width: 3.2em;
+        height: 3.2em;
+        background-color: black;
+        border: none;
+        color: white;
+        display: block;
+        transition: all 500ms ease-in-out;
+    }
+    .closingrightDiv-direction {
+        display: none;
+    }
+    .navrightDiv-direction {
+        position: absolute;
+        background-color: black;
+        color: white;
+        padding: 0 0.4em 0.4em 0.5em;
+        z-index: 0;
+        top: 25em;
+        right: -1.8em;
+        transform: rotate(-90deg);
+        cursor: pointer;
+    }
+    .navrightDiv-direction>img {
+        width: 1.2em;
+        position: relative;
+        top: 0.1em;
+    }
+    .rightDiv-direction {
+        background-color: var(--main-bg-color);
+        right: 0;
+        top: 20em;
+        position: absolute;
+        width: 20em;
+        height: 19em;
+        z-index: 1;
+    }
+    .direction-nav {
+        color: white;
+        width: 100%;
+        height: 2.67em;
+        background-color: black;
+        text-align: center;
+        padding-top: 0.6em;
+    }
+    .direction-content {
+        width: 100%;
+        height: 17em;
+        background-color: var(--main-bg-color);
+    }
+    /*---------EndDirection---------*/
+    /*----------EndNavRightDiv--------*/
+}
+
+
+/*------EndWidthScreen-------*/
+
+
+/*------SmallScreen------*/
+
+@media only screen and (max-width: 599px) {
+    /*-------Left Div-------*/
+    .navLeftDiv {
+        position: absolute;
+        background-color: black;
+        color: white;
+        padding: 0 0.4em 0.4em 0.4em;
+        z-index: 0;
+        top: 2.2em;
+        left: -1.2em;
+        transform: rotate(90deg);
+        cursor: pointer;
+    }
+    .navLeftDiv>img {
+        position: relative;
+        top: 0.4em;
+    }
+    .leftDiv {
+        top: 0;
+        position: absolute;
+        width: 29em;
+        height: 94.6%;
+    }
+    .closeLeftDiv {
+        position: absolute;
+        left: 34.8em;
+        top: 0em;
+        width: 3.2em;
+        height: 3.2em;
+        background-color: black;
+        border: none;
+        color: white;
+        display: block;
+        transition: all 500ms ease-in-out;
+    }
+    .closingleftDiv {
+        display: none;
+    }
+    .searchDiv {
+        width: 99.8%;
+        height: 2.6em;
+        background-color: black;
+    }
+    .tSearchInput {
+        margin: 0.5em 0 0 1em;
+        font-size: 1em;
+        border: none;
+        padding: 0.2em;
+        width: 24em;
+    }
+    .tSearchIcon {
+        position: relative;
+        top: 0.5em;
+        margin-left: 0.7em;
+    }
+    .tSearchContent {
+        background-color: white;
+        width: 100%;
+        height: 100%;
+        background-size: cover;
+        overflow-y: scroll;
+    }
+    /*------PlaceInfo-------*/
+    .tPlaceInfo {
+        width: 100%;
+        height: 36.7em;
+        background-color: white;
+    }
+    .tPlaceInfo-img {
+        width: 100%;
+    }
+    .tPlaceInfo-Name {
+        font-size: 1.5em;
+        font-weight: bold;
+        padding: 0.6em 0.6em 0 0.6em;
+    }
+    .tPlaceInfo-Type {
+        padding: 0 0.6em 0 1em;
+    }
+    .divRatingStar {
+        width: 7em;
+        margin: 0;
+        float: right;
+    }
+    .ratingstar {
+        width: 1em;
+        height: 1em;
+    }
+    .tPlaceInfo-info {}
+    .infoblock {
+        padding: 0.5em 0 0.5em 0;
+    }
+    .tPlaceInfo-description {}
+    .tPlaceInfo-comment {}
+    /*-------Event-------*/
+    .eventBlock {
+        padding: 1em;
+        width: 100%;
+        min-height: 3em;
+        background-color: azure;
+        cursor: pointer;
+    }
+    .eventDetail {
+        margin: 0;
+        width: 100%;
+        height: 0;
+        overflow: hidden;
+        transition: all 500ms ease-in-out;
+    }
+    .eventDetail-open {
+        margin-top: 1.2em;
+        height: 10em;
+        overflow: visible;
+        transition: all 500ms ease-in-out;
+    }
+    .graybg {
+        background-color: gray;
+    }
+    .eventDate {
+        margin: 0;
+        width: 5em;
+        float: right;
+    }
+    /*--------EndEvent-------*/
+    /*---------End Place Info--------*/
+    /*---------Tabs-----------*/
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+    .bg-color {
+        /*    background-color: #46a1de;*/
+        transition-duration: .5s;
+    }
+    .text-color {
+        color: #46a1de;
+        transition-duration: .5s;
+    }
+    .wrapper {
+        width: 100%;
+        margin: 0 auto;
+    }
+    .tabs {
+        display: table;
+        table-layout: fixed;
+        width: 100%;
+        -webkit-transform: translateY(5px);
+        transform: translateY(5px);
+        background-color: black;
+    }
+    .tabs>li {
+        transition-duration: .25s;
+        display: table-cell;
+        list-style: none;
+        text-align: center;
+        padding: 10px 5px 10px 5px;
+        position: relative;
+        overflow: hidden;
+        cursor: pointer;
+        color: grey;
+    }
+    .tabs>li:before {
+        z-index: -1;
+        position: absolute;
+        content: "";
+        width: 100%;
+        height: 120%;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.3);
+        -webkit-transform: translateY(100%);
+        transform: translateY(100%);
+        transition-duration: .25s;
+        /*    border-radius: 5px 5px 0 0;*/
+    }
+    .tabs>li:hover:before {
+        -webkit-transform: translateY(70%);
+        transform: translateY(70%);
+    }
+    .tabs>li.active {
+        color: black;
+        font-weight: bold;
+    }
+    .tabs>li.active:before {
+        transition-duration: .5s;
+        background-color: white;
+        -webkit-transform: translateY(0);
+        transform: translateY(0);
+    }
+    .tab__content {
+        background-color: white;
+        position: relative;
+        width: 100%;
+        border-radius: 5px;
+    }
+    .tab__content>li {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        display: none;
+        list-style: none;
+    }
+    .tab__content>li .content__wrapper {
+        font-size: 0.9em;
+        text-align: left;
+        border-radius: 5px;
+        width: 100%;
+        padding: 1.2em 1.2em 1.5em 1.2em;
+        background-color: white;
+    }
+    .content__wrapper h2 {
+        width: 100%;
+        text-align: center;
+        padding-bottom: 20px;
+        font-weight: 300;
+    }
+    .content__wrapper img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+    }
+    /*---------End Tabs-----------*/
+    /*---------End Left Div----------*/
+    /*------------navRightDiv-------------*/
+    /*----------TourBook---------*/
+    .closerightDiv-tourBook {
+        position: absolute;
+        right: 24em;
+        top: 0em;
+        width: 3.2em;
+        height: 3.2em;
+        background-color: black;
+        border: none;
+        color: white;
+        display: block;
+        transition: all 500ms ease-in-out;
+    }
+    .closingrightDiv-tourBook {
+        display: none;
+    }
+    .navrightDiv-tourBook {
+        position: absolute;
+        background-color: black;
+        color: white;
+        padding: 0 0.4em 0.4em 0.5em;
+        z-index: 0;
+        top: 3em;
+        right: -1.8em;
+        transform: rotate(-90deg);
+        cursor: pointer;
+    }
+    .navrightDiv-tourBook>img {
+        width: 1.2em;
+        position: relative;
+        top: 0.1em;
+    }
+    .rightDiv-tourbook {
+        background-color: var(--main-bg-color);
+        right: 0;
+        top: 0;
+        position: absolute;
+        width: 20em;
+        height: 20em;
+        z-index: 1;
+    }
+    .tourBook-nav {
+        color: white;
+        width: 100%;
+        height: 2.67em;
+        background-color: black;
+        text-align: center;
+        padding-top: 0.6em;
+    }
+    .tourBook-content {
+        width: 100%;
+        height: 17.3em;
+        background-color: var(--main-bg-color);
+    }
+    .deleteTourBookLine {
+        float: right;
+    }
+    /*--------EndTourBook---------*/
+    /*---------Direction--------*/
+    .closerightDiv-direction {
+        position: absolute;
+        right: 24em;
+        width: 3.2em;
+        height: 3.2em;
+        background-color: black;
+        border: none;
+        color: white;
+        display: block;
+        transition: all 500ms ease-in-out;
+    }
+    .closingrightDiv-direction {
+        display: none;
+    }
+    .navrightDiv-direction {
+        position: absolute;
+        background-color: black;
+        color: white;
+        padding: 0 0.4em 0.4em 0.5em;
+        z-index: 0;
+        top: 25em;
+        right: -1.8em;
+        transform: rotate(-90deg);
+        cursor: pointer;
+    }
+    .navrightDiv-direction>img {
+        width: 1.2em;
+        position: relative;
+        top: 0.1em;
+    }
+    .rightDiv-direction {
+        background-color: var(--main-bg-color);
+        right: 0;
+        top: 20em;
+        position: absolute;
+        width: 20em;
+        height: 19em;
+        z-index: 1;
+    }
+    .direction-nav {
+        color: white;
+        width: 100%;
+        height: 2.67em;
+        background-color: black;
+        text-align: center;
+        padding-top: 0.6em;
+    }
+    .direction-content {
+        width: 100%;
+        height: 17em;
+        background-color: var(--main-bg-color);
+    }
+    /*---------EndDirection---------*/
+    /*----------EndNavRightDiv--------*/
+}
+
+
+/*--------EndSmallScreen------*/

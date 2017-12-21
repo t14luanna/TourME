@@ -1,0 +1,98 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <link rel="icon" href="../Asset/Images/favicon.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes, maximum-scale=2, minimum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta property="og:description" content="This is website to introduce place and create tour by yourself">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <!------Cassading style sheet-------->
+    <!-- <link rel="stylesheet" href="src/bootstrap-3.3.7-dist/css/bootstrap.min.css"> -->
+    <link rel="stylesheet" href="src/font-awesome-4.7.0/font-awesome-4.7.0/css/font-awesome.css">
+
+    <link rel="stylesheet" href="css/Home.css">
+
+</head>
+
+<body>
+
+  <button class="collapse-out collapse-out-right" id="tLeftSide"><i class="fa fa-bars" aria-hidden="true"></i> <b>Search</b></button>
+  <button class="collapse-out collapse-out-left" id="tRightSide"><i class="fa fa-bars" aria-hidden="true"></i> <b>Choice</b></button>
+  <button class="collapse-out collapse-out-left" id="directions-side"><i class="fa fa-bars" aria-hidden="true"></i> <b>Direction</b></button>
+
+    <!-- Left Side -->
+    <div class="tSide tLeftSide">
+      <button class="collapse collapse-in collapse-right"><i class="fa fa-minus" aria-hidden="true"></i></button>
+
+      <!-- Search Body -->
+        <div class="search-body">
+          <input type="text" id="search-input"/>
+<!--          <img src="../Asset/Icons/search.png" class="icon" onclick=""/>-->
+        </div>
+        <!-- Search Body -->
+
+        <div class="filter">
+          <ul>
+            <li><button class="filter-btn icon" id="all"><img src="../Asset/Icons/All.png"/></button></li>
+            <li><button class="filter-btn icon" id="restaurant"><img src="../Asset/Icons/restaurant_default.png"/></button></li>
+            <li><button class="filter-btn icon" id="cafe"><img src="../Asset/Icons/cafe_default.png"/></button></li>
+            <li><button class="filter-btn icon" id="lodging"><img src="../Asset/Icons/lodging_default.png"/></button></li>
+            <li><button class="filter-btn icon" id="point_of_interest"><img src="../Asset/Icons/point_of_interest_default.png"/></button></li>
+            <li><button class="filter-btn" id=""><img src="" width="16px" height="16px"/></button></li>
+            <li><button class="filter-btn" id=""><img src="" width="16px" height="16px"/></button></li>
+            <li><button class="filter-btn" id=""><img src="" width="16px" height="16px"/></button></li>
+          </ul>
+        </div>
+
+        <div id="info-content" class="info-content">
+        </div>
+
+        <!-- Nearby -->
+        <div id="nearby-content" class="nearby-body">
+          <h2>Nearby Places</h2>
+          <ul id="places"></ul>
+          <button id="more">More results</button>
+        </div>
+        <!-- Nearby -->
+
+    </div>
+    <!-- Left Side -->
+
+    <!-- DirectionPanel -->
+    <div class="tSide directions-side">
+      <button class="collapse collapse-in collapse-left"><i class="fa fa-minus" aria-hidden="true"></i></button>
+        <h2>Direction</h2>
+      <div id="directions-panel">
+
+      </div>
+    </div>
+    <!-- DirectionPanel -->
+
+    <!-- Choice Place -->
+    <div class="tSide tRightSide">
+      <button class="collapse collapse-in collapse-left"><i class="fa fa-minus" aria-hidden="true"></i></button>
+      <h2>Choice Place</h2>
+      <ul id="place-choice"></ul>
+      <button id="mapping-btn" class="mapping-btn">Mapping</button>
+    </div>
+    <!-- Choice Place -->
+
+    <!-- Map -->
+    <div id="tmainMap" class="tmainMap"></div>
+    <!-- Map -->
+
+
+
+    <!------Script------->
+    <script type="text/javascript" src="src/jquery-3.2.1.min.js"></script>
+    <script src="src/jquery-ui.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAlFgrrMbkJAOVTXffgqnV6syXZ1A8yaq8&&libraries=places"></script>
+
+    <script src="js/Home-2.js"></script>
+    <script src="js/google-map-api.js"></script>
+    <script src="js/google-map-direction-api.js"></script>
+    <script src="js/google-map-nearby-api.js"></script>
+    <script src="js/google-map-autocomplete-api.js"></script>
+  </body>
+</html>

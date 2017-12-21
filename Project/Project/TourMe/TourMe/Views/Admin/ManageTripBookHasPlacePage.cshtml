@@ -1,0 +1,115 @@
+﻿@*<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+
+
+</head>
+<body>
+
+    <div id="example">
+        <div id="grid"></div>
+
+        <script>
+            var T = "True";
+            var F = "False";
+
+            $(document).ready(function () {
+                var crudServiceBaseUrl = "",
+                    dataSource = new kendo.data.DataSource({
+                        transport: {
+                            read: {
+                                url: crudServiceBaseUrl + "/api/TripBookHasPlace/Get",
+                                dataType: "json"
+                            },
+                            update: {
+                                url: crudServiceBaseUrl + "/api/TripBookHasPlace/Update",
+                                type: "POST",
+                                dataType: "json",
+                                complete: function (e) {
+                                    $("#grid").data("kendoGrid").dataSource.read();
+                                }
+                            },
+                            destroy: {
+                                url: crudServiceBaseUrl + "/api/TripBookHasPlace/Destroy",
+                                type: "POST",
+                                dataType: "json",
+                                complete: function (e) {
+                                    $("#grid").data("kendoGrid").dataSource.read();
+                                }
+                            },
+                            create: {
+                                url: crudServiceBaseUrl + "/api/TripBookHasPlace/Create",
+                                type: "POST",
+                                dataType: "json",
+                                complete: function (e) {
+                                    $("#grid").data("kendoGrid").dataSource.read();
+                                }
+                            },
+                            parameterMap: function (options, operation) {
+                                if (operation !== "read" && options.models) {
+                                    for (var i in options.models[0]) {
+                                        if (!isNaN(options.models[0][i])) {
+                                            if (options.models[0][i] instanceof Date) {
+                                                options.models[0][i] = options.models[0][i].toISOString();
+                                            }
+                                        }
+                                    }
+                                    tmp = options.models[0];
+                                    return options.models[0];
+                                }
+                            }
+                        },
+                        batch: true,
+                        pageSize: 20,
+                        serverPaging: true,
+                        serverSorting: true,
+                        schema: {
+                            model: {
+                                id: "Id",
+                                fields: {
+                                    Id: { editable: false, nullable: false, defaultValue: -1 },
+                                    TripBookId: { editable: false, nullable: false, defaultValue: 0 },
+                                    PlaceId: { editable: false, nullable: false, defaultValue: 0 },
+                                    DateCreate: { editable: false, type: "date" },
+                                    isTraveled: { editable: false, type: "boolean" },
+                                    isRemoved: { editable: false, type: "boolean" },
+                                    Vendor: {editable: false,}
+                                }
+                            }
+                        }
+                    });
+
+                $("#grid").kendoGrid({
+                    dataSource: dataSource,
+                    pageable: true,
+                    sortable: true,
+                    pageable: true,
+                    height: 600,
+                    //toolbar: ["create"],
+                    columns: [
+                        { field: "Id", title: "Id", width: "70px" },
+                        { field: "TripBookId", title: "TripBookId ", width: "120px" },
+                        { field: "PlaceId", title: "PlaceId ", width: "120px" },
+                        //{ field: "isEnable", title: "isEnable ", width: "100px", template: "#=isEnable? T : F#" },
+                        { field: "isTraveled", title: "isTraveled ", width: "100px", template: "#=isTraveled? T : F#" },
+                        { field: "isRemoved", title: "isRemoved ", width: "110px", template: "#=isRemoved? T : F#" },
+                        { field: "Vendor", title: "Vendor", with: "200px", scrollable: true},
+                        { field: "DateCreate", title: "DateCreate ", width: "300px" },
+                        //{ command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }
+                    ]
+                });
+            });
+
+        </script>
+    </div>
+
+
+</body>
+</html>*@

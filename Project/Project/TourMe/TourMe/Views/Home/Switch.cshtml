@@ -1,0 +1,94 @@
+﻿
+@{
+    ViewBag.Title = "Switch";
+    Layout = null;
+}
+<style>
+    @@keyframes loading {
+  0% {
+    transform-origin: 100% 100%;
+    transform: rotate(0deg);
+  }
+  100% {
+    transform-origin: 100% 100%;
+    transform: rotate(360deg);
+  }
+}
+* {
+  box-sizing: border-box;
+}
+body {
+  padding: 50px 0 0;
+  background-color: #333;
+}
+.loading {
+  position: relative;
+  display: block;
+  top: 29%;
+  z-index: 13;
+  margin: 15px auto;
+  width: 100px;
+  height: 100px;
+  border: 5px solid transparent;
+  border-radius: 50%;
+  background-color: transparent;
+}
+.loading:hover {
+  border-color: rgba(210, 210, 210, 0.5);
+}
+.loading:hover:before {
+  background-color: rgba(210, 210, 210, 0.4);
+}
+.loading:before {
+  position: absolute;
+  display: block;
+  content: '';
+  z-index: 12;
+  top: 4px;
+  left: 4px;
+  width: 82px;
+  height: 82px;
+  border-radius: 50%;
+  background-color: #333;
+}
+.loading:after {
+  position: absolute;
+  display: block;
+  top: 0;
+  content: '';
+  z-index: 11;
+  top: 0px;
+  left: 0px;
+  width: 45px;
+  height: 45px;
+  border-radius: 200px 0 0 0;
+  background: linear-gradient(45deg, rgba(0, 0, 0, 0) 0%, #459ad7 50%, #459ad7 100%);
+  animation: loading .9s linear infinite;
+}
+
+</style>
+
+<i class="loading"></i>
+
+<script src="~/Scripts/jquery-3.1.1.min.js"></script>
+<script type="text/javascript">
+    $(document).ready(
+        setTimeout(
+            function () {
+                console.log('ready');
+                if (navigator.userAgent.match(/Android/i) ||
+                    navigator.userAgent.match(/webOS/i) ||
+                    navigator.userAgent.match(/iPhone/i) ||
+                    navigator.userAgent.match(/iPad/i) ||
+                    navigator.userAgent.match(/iPod/i) ||
+                    navigator.userAgent.match(/BlackBerry/i) ||
+                    navigator.userAgent.match(/Windows Phone/i)
+                ) {
+                    console.log('mobile device');
+                    window.location.replace("/Home/MobileDevice");
+                } else {
+                    window.location.replace("/Home/Index");
+                }
+            }, 1000)
+    );
+</script>

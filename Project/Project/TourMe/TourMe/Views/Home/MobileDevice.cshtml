@@ -1,0 +1,173 @@
+﻿
+@{
+    ViewBag.Title = "MobileDevice";
+    Layout = null;
+}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="@Url.Content("~/Asset/Images/favicont.ico")">
+    <link rel="stylesheet" href=@Url.Content("~/Content/myCSS/mbMain.css")>
+    <link rel="stylesheet" href=@Url.Content("~/Content/myCSS/jquery-ui-1.12.1/jquery-ui.min.css") />
+</head>
+
+<body>
+
+    <div class="tcontainer">
+        <div class="tnav tpadding">
+            <button id="thamburgerIcon" class="thamburgerIcon tnav-btn"><img src="../Asset/Icons/collapse_background.png" class="ticon" /></button>
+            <img class="tlogo" src="../Asset/Images/logoWhite.png" />
+            <button id="tsearchIcon" class="tsearchIcon tnav-btn"><img src="../Asset/Icons/search.png" class="ticon" /></button>
+        </div>
+        <div id="tsearch-div" class="tsearch-div">
+            <div class="tsearch-input tpadding">
+                <input type="text" placeholder="Tên địa điểm, địa chỉ, ..." id="tags" />
+            </div>
+            <div class="tsearch-pick">
+                <div class="tsearch-kind">
+                    <div class="tsearch-placeKinds tpadding">
+                        <ul class="tul-kind">
+                            <li style="margin: 0"><img class="ticon" src="../Asset/Icons/close.png" /></li>
+                            <li onclick="changeKind(3)"><img id="k0" class="ticon" src="../Asset/Icons/Cafe_default.png" /></li>
+                            <li onclick="changeKind(4)"><img id="k0" class="ticon" src="../Asset/Icons/Hotel_default.png" /></li>
+                            <li onclick="changeKind(5)"><img id="k0" class="ticon" src="../Asset/Icons/Market_default.png" /></li>
+                            <li onclick="changeKind(7)"><img id="k0" class="ticon" src="../Asset/Icons/Point_of_interested_default.png" /></li>
+                            <li onclick="changeKind(14)"><img id="k0" class="ticon" src="../Asset/Icons/Restaurant_default.png" /></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="tsearch-result">
+                    <ul class="tsearch-results" id="searchUl"></ul>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+
+    <div id="tsideContainer" class="tsideContainer thide">
+        <div class="tsideContent">
+            <div class="tsideContent-user">
+                <img class="timgage-cirle" src="~/Asset/Icons/author.jpeg" />
+                <h4>Hello</h4>
+            </div>
+            <div class="tsideContent-content" id="tsideContent-info">
+                <img class="tPlaceInfo-img" src="../Asset/Images/ho-chi-minh-city-vietnam_71471_990x742.jpg" />
+                <h3 class="tPlaceInfo-Name">
+                    Ho Chi Minh
+                </h3>
+                <div class="tPlaceInfo-Type">
+                    <div class="divRatingStar">
+                        <img class="ratingstar" src="../Asset/Icons/star.png">
+                        <img class="ratingstar" src="../Asset/Icons/star.png">
+                        <img class="ratingstar" src="../Asset/Icons/star.png">
+                        <img class="ratingstar" src="../Asset/Icons/star.png">
+                        <img class="ratingstar" src="../Asset/Icons/star.png">
+                    </div>
+                </div>
+                <div class="tPlaceInfo-address infoblock">
+                    <img class="ticon" src="../Asset/Icons/marker.png" />&nbsp; <span>Viet Nam</span>
+                </div>
+                <div class="tPlaceInfo-contact infoblock">
+                    <img class="ticon" src="../Asset/Icons/Phone.png" />&nbsp; <span></span>
+                </div>
+                <div class="tPlaceInfo-contact infoblock">
+                    <b>Min price: </b><span id="minPrice">15.000</span>&nbsp;-&nbsp;<b>Max price: </b> <br /><span id="maxPrice">100.000.000</span>
+                </div>
+                <div class="tPlaceInfo-contact infoblock">
+                    <img class="ticon" src="../Asset/Icons/link.png" />&nbsp;
+                    <a href="http://www.hcm.org">www.hcm.org</a>
+                </div>
+                <div class="tPlaceInfo-description infoblock">
+                    <span></span>
+                </div>
+                <div class="tline"></div>
+                <div class="tPlaceInfo-comment infoblock">
+                    Danh gia cua nguoi dung: <br /> <span></span>
+                </div>
+            </div>
+            <div class="tsideContent-content" id="tsideContent-tourBook">
+                <div id="tourBook">
+                    <div id="tourBook-content" class="tourBook-content">
+                    </div>
+                    <div id="mappingBtn" class="mappingBtn"><span>MAPPING</span></div>
+                </div>
+            </div>
+            <div class="tsideContent-content" id="tsideContent-direction">
+                <div id="direction-content" class="direction-content"></div>
+            </div>
+            <div class="tsideContent-content" id="tsideContent-nearby">
+                <h2 class="text-color">Các địa điểm gần đây</h2>
+                <div class="content__wrapper nearby-list">
+
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+        <div class="tsideFunctions">
+            <ul class="tsideFunctions-ul">
+                <li id="closeSideContainer"><img class="tsideFunctions-functions" src="../Asset/Icons/closeicon.png" /></li>
+                <li><img class="tsideFunctions-functions" src="../Asset/Icons/user.png" /></li>
+                <li onclick="changeTab('tsideContent-tourBook')"><img class="tsideFunctions-functions" src="../Asset/Icons/book.png" /></li>
+                <li onclick="changeTab('tsideContent-direction')"><img class="tsideFunctions-functions" src="../Asset/Icons/direction.png" /></li>
+                <li onclick="changeTab('tsideContent-info')"><img class="tsideFunctions-functions" src="../Asset/Icons/info.png" /></li>
+                <li onclick="changeTab('tsideContent-nearby')"><img class="tsideFunctions-functions" src="../Asset/Icons/All.png" /></li>
+            </ul>
+        </div>
+        <div class="clear"></div>
+    </div>
+
+    <div id="toverlay" class="toverLay thide"></div>
+    <div id="tmainMap" class="tmap" style="margin-top: 20vh; height: 80vh"></div>
+
+
+    <!------Script------->
+    <!------jQuery------>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/jquery-3.2.1.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/myScript/jquery-ui-1.12.1/jquery-ui.js")"></script>
+
+    <!------Facebook API------>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/facebookAPI/facebook-log-in.js")"></script>
+
+    <!------Google API------>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyDf-ximzEUCztn0WjKx3aV3VkFBF7s1jNI&&libraries=places"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/googleAPI/map-create.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/googleAPI/direction.js")"></script>
+
+    <!------Autocomplete------>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/autocomplete/autocomplete.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/autocomplete/autocomplete-search.js")"></script>
+
+    <!--NearBy-->
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/nearby/nearby-search.js")"></script>
+
+    <!------DAO------>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/DAO/placeDAO.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/DAO/imageDAO.js")"></script>
+
+
+    <!------Set View------>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/view/set-content-choice.js")"></script>
+
+    <script type="text/javascript" src="@Url.Content("~/Scripts/myScript/Main.js")"></script>
+    <script src=@Url.Content("~/Scripts/myScript/mbMain.js")></script>
+
+    <!------ Trip book ------>
+    <script>
+        @{
+            String tripBookName = "TripBook";
+
+            if (@Request.Cookies[tripBookName] == null)
+            {
+
+                HttpCookie tripBook = new HttpCookie(tripBookName);
+                tripBook.Expires = DateTime.MaxValue;
+                Response.Cookies.Add(tripBook);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

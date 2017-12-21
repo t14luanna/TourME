@@ -1,0 +1,340 @@
+.tbg, .zoomin {
+    transition: all 1s ease-in-out
+}
+
+.tleftNav, .tmb-left, .tmid-rectangle, body, html {
+    box-sizing: border-box
+}
+
+body, html {
+    height: 100%;
+    margin: 0;
+    overflow: hidden
+}
+
+.tbg {
+    background: url(../../Asset/Images/ho-chi-minh-city-vietnam_71471_990x742.jpg) no-repeat;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    position: fixed;
+    z-index: 0
+}
+
+.tclear {
+    clear: both
+}
+
+.zoomin {
+    transform: scale(1.2)
+}
+
+.thin {
+    height: 1px;
+    border: 0;
+    color: #fff;
+    background-color: #fff;
+    width: 35%;
+    position: relative;
+    top: -55%;
+    margin: 0;
+    z-index: 4;
+    transform: rotate(90deg);
+    left: 32.5%
+}
+
+.tavatar {
+    width: 9em;
+    height: 9em;
+    border-radius: 50%
+}
+
+.tinput {
+    width: 100%;
+    font-size: 1.2em;
+    border: none;
+    padding: .5em
+}
+
+.tpnofi, .tul > li {
+    font-size: 1em;
+    color: #fff
+}
+
+.tpnofi {
+    font-family: sans-serif
+}
+
+.thover:hover {
+    cursor: pointer
+}
+
+.tblock:hover {
+    cursor: not-allowed
+}
+
+.green {
+    background-color: #adff2f
+}
+
+.red {
+    background-color: red
+}
+
+.white {
+    color: #fff
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+    height: 3px
+}
+
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: rgba(0,0,0,1);
+    -webkit-box-shadow: inset 2px 2px 6px rgba(255,255,255,1)
+}
+
+    ::-webkit-scrollbar-thumb:window-inactive {
+        background: rgba(255,255,255,1)
+    }
+
+.tleftNav {
+    padding: 2% 0 2% 4%;
+    width: 20%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    background-color: transparent;
+    z-index: 2
+}
+
+.tleftNav-logo {
+    width: 5em;
+    float: left
+}
+
+.tul {
+    margin: 7em 0 0;
+    padding: 0;
+    list-style-type: none
+}
+
+    .tul > li {
+        margin-top: 1.5em
+    }
+
+        .tul > li > div > img {
+            width: 1.2em;
+            position: relative;
+            top: .5em;
+            left: .5em
+        }
+
+.tli-icon {
+    margin: 0;
+    padding: 0;
+    width: 2.2em;
+    height: 2.2em;
+    background-color: grey;
+    border: none;
+    border-radius: 50%;
+    display: -webkit-inline-box
+}
+
+.tmb-left, .tmb-right {
+    display: inline-block;
+    float: left;
+    overflow: hidden
+}
+
+.tli-span {
+    position: relative;
+    top: .3em;
+    margin-left: .5em
+}
+
+.tmid {
+    width: 65%;
+    height: 200%;
+    background-color: transparent;
+    top: 0;
+    left: 20%;
+    position: absolute;
+    z-index: 1
+}
+
+.tmid-block {
+    width: 100%;
+    height: 100vh
+}
+
+.tmb-left {
+    padding: 15% 5%;
+    width: 50%;
+    height: 100%
+}
+
+.tmb-left-content {
+    position: relative;
+    left: 0;
+    transition: all 2s ease-in-out
+}
+
+.tmb-left-content-hide {
+    left: 100%;
+    transition: all 1s ease-in-out
+}
+
+.tmb-left-content > p {
+    margin: 0;
+    font-size: 1.2em;
+    font-family: Raleway,sans-serif
+}
+
+.tmb-left-content > span {
+    font-family: Oswald,sans-serif
+}
+
+.tmid-rectangle {
+    padding: 5%;
+    width: 12em;
+    height: 4em;
+    background-color: rgba(255,255,255,.3)
+}
+
+.rectnum {
+    font-size: 2em;
+    float: left
+}
+
+.recttxt {
+    font-size: 1em;
+    float: left
+}
+
+.tmid-bigSquare {
+    width: 12em;
+    height: 12em;
+    background: url(../../Asset/Images/smallpic.jpg);
+    background-size: cover;
+    padding: 15% 5%;
+    box-sizing: border-box
+}
+
+.tmid-smallSquare-kind, .tmid-smallSquare-ver {
+    width: 6em;
+    height: 6em;
+    padding: 9% 5%;
+    transition: all ease-in-out .5s;
+    box-sizing: border-box
+}
+
+.bigsqrtnum {
+    font-size: 3.1em;
+    float: left
+}
+
+.bigsqrttxt {
+    font-size: 1.5em;
+    float: left;
+    margin-left: 25%
+}
+
+.tmid-smallSquare-ver {
+    background-color: #fff;
+    margin: -6em 0 0 12em
+}
+
+.tmid-smallSquare-kind {
+    background-color: #8a2be2;
+    margin: -12em 0 0 12em;
+    opacity: 1
+}
+
+.tboxsmall-kind, .tboxsmall-ver {
+    transition: all .5s ease-in-out
+}
+
+.smallsqrttxt {
+    font-size: 1em;
+    vertical-align: text-top
+}
+
+.smallsqrtnum {
+    font-size: 2em;
+    vertical-align: text-top
+}
+
+.tboxsmall-ver {
+    margin: -6em 0 0
+}
+
+.tboxsmall-kind {
+    opacity: 0;
+    margin: -6em 0 0 12em
+}
+
+.tmb-right {
+    width: 50%;
+    height: 100%;
+    box-sizing: border-box
+}
+
+.tmb-right-content {
+    padding: 29% 5% 15%;
+    position: relative;
+    left: 0;
+    transition: all 2s ease-in-out
+}
+
+.tmb-right-content-hide {
+    left: -90%;
+    transition: all 1s ease-in-out
+}
+
+.pfont {
+    margin: 0;
+    font-size: 1.2em;
+    font-family: Raleway,sans-serif;
+    color: #fff
+}
+
+.spanfont {
+    font-size: 1.7em;
+    font-family: Oswald,sans-serif;
+    color: #fff
+}
+
+.tmb-right-content2 {
+    padding: 29% 5% 15%;
+    position: relative;
+    left: 0;
+    transition: all 2s ease-in-out
+}
+
+.tmb-right-content-hide2 {
+    left: -90%;
+    transition: all 1s ease-in-out
+}
+
+.trightNav {
+    padding: 2% 5% 2% 0;
+    width: 15%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background-color: transparent;
+    z-index: 2
+}
+
+@media screen and (max-width:700px) {
+    .tmb-left, .tmb-right {
+        width: 100%;
+        height: 50%;
+        font-size: 2em
+    }
+}

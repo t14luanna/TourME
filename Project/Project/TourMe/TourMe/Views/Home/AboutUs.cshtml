@@ -1,0 +1,153 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="icon" href="~/Asset/Images/favicont.ico"/>
+    <link href="~/Content/myCSS/AboutUs.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="tbg" class="tbg"></div>
+    <div class="tleftNav">
+        <img class="tleftNav-logo" src="../Asset/Images/logoWhite.png" onclick="goToHome()" />
+        <ul class="tul">
+            <li onclick="changeTo(0)" class="thover">
+                <div class="tli-icon"><img src="../Asset/Icons/flag.png" /></div><span class="tli-span">Objective</span>
+            </li>
+            <li onclick="changeTo(1)" class="thover">
+                <div class="tli-icon"><img src="../Asset/Icons/book.png" /></div><span class="tli-span">Story</span>
+            </li>
+            <li onclick="changeTo(2)" class="thover">
+                <div class="tli-icon"><img src="../Asset/Icons/author.jpeg" /></div><span class="tli-span">Author</span>
+            </li>
+            <li onclick="changeTo(3)" class="thover">
+                <div class="tli-icon"><img src="../Asset/Icons/grow.png" /></div><span class="tli-span">Develop</span>
+            </li>
+            <li onclick="changeTo(4)" class="thover">
+                <div class="tli-icon"><img src="../Asset/Icons/phone.png" /></div><span class="tli-span">Contact</span>
+            </li>
+        </ul>
+        <div class="tclear"></div>
+    </div>
+    <div id="tmid" class="tmid">
+        <div id="tmb1" class="tmid-block">
+            <div class="tmb-left">
+                <div class="tmid-rectangle"><span class="rectnum white">100</span><span class="recttxt white">views</span></div>
+                <div class="tmid-bigSquare"><span class="bigsqrtnum white">10000+</span><span class="bigsqrttxt white">places</span></div>
+                <div class="tmid-smallSquare-ver tboxsmall-ver">
+                    <span class="smallsqrttxt">v</span><span class="smallsqrtnum">0.3</span>
+                </div>
+                <div class="tmid-smallSquare-kind tboxsmall-kind">
+                    <span class="smallsqrtnum white">14</span><span class="smallsqrttxt white">kinds</span>
+                </div>
+            </div>
+            <div class="tmb-right">
+                <div class="tmb-right-content tmb-right-content-hide">
+                    <p class="pfont">With .. you can easily find places, infomation about that places. By mapping them, you are creating your own tour.</p><br /><br />
+                    <span class="spanfont">Hope you enjoy it!</span>
+                </div>
+            </div>
+            <div class="tclear"></div>
+            <hr class="thin">
+        </div>
+        <div id="tmb2" class="tmid-block">
+            <div class="tmb-left">
+                <div class="tmb-left-content tmb-left-content-hide">
+                    <span class="spanfont">Find a way and accelerate</span>
+                    <p class="pfont">We believe that information technology has made great effect on travelers. So that we 've created this application for everybody find out information about places, create their our trip and it will helpful with traveller along the journey.</p>
+                </div>
+            </div>
+            <div class="tmb-right">
+                <div class="tmb-right-content2 tmb-right-content-hide2">
+                    <span class="spanfont">Apply what we have learned and study more</span>
+                    <p class="pfont">We try to apply our learning by making this project. Thanks to greate documents (ASP.NET, Google APIs, Facebook dev,...) and supports from the community (StackOverflow, Youtube,...) we have solved our problems, which found while doing this project.</p>
+                </div>
+            </div>
+            <div class="tclear"></div>
+            <hr class="thin">
+        </div>
+        <div id="tmb3" class="tmid-block">
+            <div class="tmb-left">
+                <div class="tmb-left-content">
+                    <img class="tavatar" src="../Asset/Images/tienavatar.jpg" />
+                    <span class="spanfont">Trần Phước Tiến</span>
+                    <p></p>
+                </div>
+            </div>
+            <div class="tmb-right">
+                <div class="tmb-right-content">
+                    <img class="tavatar" src="../Asset/Images/1st-Place-Francisco-Negroni-Rodriguez-Chile.jpg" />
+                    <span class="spanfont">Nguyễn Anh Luân</span>
+                    <p></p>
+                </div>
+            </div>
+            <div class="tclear"></div>
+            <hr class="thin">
+        </div>
+        <div id="tmb4" class="tmid-block">
+            <div class="tmb-left">
+                <div class="tmb-left-content">
+                    <span class="spanfont">Greate support!</span>
+                    <p class="pfont">We have had a lot of help from teachers, previous students, friend and good guys who public their knowledge, answers to community. We are appreciate and thanks for your help!</p><br />
+                    <p class="pfont">We absolutely develop this project if it found helpful by people.</p>
+                </div>
+            </div>
+            <div class="tmb-right">
+                <div class="tmb-right-content">
+                    <span class="spanfont">Still young, still foolish</span>
+                    <p class="pfont">Because this is our first project, so if we had done anything not right about the liscene or purchasing. Please <a onclick="changeTo(4)" style="font-size: 1.5em; color: white" class="thover">CONTACT</a> us to tell what we have to do.</p>
+                </div>
+            </div>
+            <div class="tclear"></div>
+            <hr class="thin">
+        </div>
+        <div id="tmb5" class="tmid-block">
+            <div class="tmb-left">
+                <div class="tmb-left-content">
+                    <form>
+                        <p class="pfont" style="font-size: 1em">Your name or Company's name:</p>
+                        <input id="nametxt" class="tinput" type="text" placeholder="Your name or company's name" required /><br /><br /> <p class="pfont" style="font-size: 1em">Email:</p>
+                        <input id="emailtxt" class="tinput" type="text" placeholder="Email" required /><br /><br />
+                        <p class="pfont" style="font-size: 1em">Title:</p>
+                        <input id="titletxt" class="tinput" type="text" placeholder="Title" required /><br /><br />
+                        <div id="sendBox" style="margin-top: 1em">
+                            <button id="sb" type="submit" style="border:none; font-size: 1em; padding: 1em" onclick="sendMessage()">Send</button>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="tmb-right">
+                <div class="tmb-right-content">
+                    <textarea id="txta" rows="20" cols="50" required></textarea>
+                </div>
+            </div>
+            <div class="tclear"></div>
+            <hr class="thin">
+        </div>
+    </div>
+    <div class="trightNav">
+        '
+        <p style="text-align: right;margin: 0 0 1.5em 0;color: white;" onclick="changeTo(4)" class="thover">Write to us</p>
+        <p style="text-align: right;margin: 0 0 1.5em 0;color: white;" class="tblock">Facebook</p>
+        <p style="text-align: right;margin: 0 0 1.5em 0;color: white;" class="tblock">Add place</p>
+        <p style="text-align: right;margin: 0 0 1.5em 0;color: white;" class="tblock">Apply</p>
+    </div>
+    <script src="~/Scripts/myScript/jquery-3.2.1.min.js"></script>
+    <script src="~/Scripts/myScript/AboutUs.js"></script>
+
+    <script>
+        function goToHome() {
+            window.location.href = "/Home/Switch";
+        }
+    </script>
+</body>
+
+</html>

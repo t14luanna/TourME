@@ -1,0 +1,172 @@
+﻿@*@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.common-material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.min.css" />
+    <link rel="stylesheet" href="https://kendo.cdn.telerik.com/2017.2.621/styles/kendo.material.mobile.min.css" />
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://kendo.cdn.telerik.com/2017.2.621/js/kendo.all.min.js"></script>
+</head>
+<body>
+
+    <div id="example">
+        <div id="grid"></div>
+
+        <script>
+            $(document).ready(function () {
+                var crudServiceBaseUrl = "",
+                    dataSource = new kendo.data.DataSource({
+                        transport: {
+                            read: {
+                                url: crudServiceBaseUrl + "/api/PlaceKind/Get",
+                                dataType: "json"
+                            },
+                            update: {
+                                url: crudServiceBaseUrl + "/api/PlaceKind/Update",
+                                type: "POST",
+                                dataType: "json",
+                                complete: function (e) {
+                                    $("#grid").data("kendoGrid").dataSource.read();
+                                }
+                            },
+                            destroy: {
+                                url: crudServiceBaseUrl + "/api/PlaceKind/Destroy",
+                                type: "POST",
+                                dataType: "json",
+                                complete: function (e) {
+                                    $("#grid").data("kendoGrid").dataSource.read();
+                                }
+                            },
+                            create: {
+                                url: crudServiceBaseUrl + "/api/PlaceKind/Create",
+                                type: "POST",
+                                dataType: "json",
+                                complete: function (e) {
+                                    $("#grid").data("kendoGrid").dataSource.read();
+                                }
+                            },
+                            parameterMap: function (options, operation) {
+                                if (operation !== "read" && options.models) {
+                                    for (var i in options.models[0]) {
+                                        if (!isNaN(options.models[0][i])) {
+                                            if (options.models[0][i] instanceof Date) {
+                                                options.models[0][i] = options.models[0][i].toISOString();
+                                            }
+                                        }
+                                    }
+                                    tmp = options.models[0];
+                                    return options.models[0];
+                                }
+                            }
+                        },
+                        batch: true,
+                        pageSize: 20,
+                        schema: {
+                            model: {
+                                id: "Id",
+                                fields: {
+                                    Id: { editable: false, nullable: false, defaultValue: -1 },
+                                    Description: { editable: true, nullable: false},
+                                    DateCreate: { editable: true, type: "date", validation: { required: true } },
+                                    Kind: { editable: true, validation: {required: true}}
+                                }
+                            }
+                        }
+                    });
+
+                $("#grid").kendoGrid({
+                    dataSource: dataSource,
+                    pageable: true,
+                    height: 600,
+                    toolbar: ["create"],
+                    columns: [
+                        { field: "Id", title: "Id", width: "70px" },
+                        { field: "Description", title: "Description", width: "150px" },
+                        { field: "Kind", title: "Kind", width: "100px" },
+                        { field: "DateCreate", title: "DateCreate ", width: "100px" },
+                        { command: ["edit", "destroy"], title: "&nbsp;", width: "250px" }],
+                    editable: {
+                        mode: "popup",
+                        template: $("#template").html()
+                    },
+                });
+            });
+
+            function customBoolEditor(container, options) {
+                $('<input class="k-checkbox" type="checkbox" name="Discontinued" data-type="boolean" data-bind="checked:Discontinued">').appendTo(container);
+                $('<label class="k-checkbox-label">&#8203;</label>').appendTo(container);
+            }
+        </script>
+        <script type="text/x-kendo-template" id="template">
+            #if(data.isNew()) {#
+            #var createTemp = kendo.template($("\#createTemplate").html());#
+            #=createTemp(data)#
+            #} else {#
+            #var createTemp = kendo.template($("\#editTemplate").html());#
+            #=createTemp(data)#
+            #}#
+        </script>
+        <script type="text/x-kendo-template" id="createTemplate">
+            <div class="k-edit-label">
+                <label for="Id">Id</label>
+            </div>
+            <div class="k-input">
+                <input id="Id" type="number" style="margin-left:10px" data-bind="value:Id" disabled="disabled">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="DateCreate">DateCreate</label>
+            </div>
+            <div class="k-input">
+                <input id="DateCreate" type="datetime" style="margin-left:10px" data-bind="value:DateCreate" disabled="disabled">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="Kind">Kind</label>
+            </div>
+            <div class="k-input">
+                <input id="inputKind" style="margin-left:10px" data-bind="value:Kind">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="Description">Description</label>
+            </div>
+            <div class="k-input">
+                <input id="inputDescription" style="margin-left:10px" data-bind="value:Description">
+            </div>
+        </script>
+        <script type="text/x-kendo-template" id="editTemplate">
+            <div class="k-edit-label">
+                <label for="Id">Id</label>
+            </div>
+            <div class="k-input">
+                <input id="Id" type="number" style="margin-left:10px" data-bind="value:Id" disabled="disabled">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="Kind">Kind</label>
+            </div>
+            <div class="k-input">
+                <input id="inputKind" style="margin-left:10px" data-bind="value:Kind">
+            </div>
+
+            <div class="k-edit-label">
+                <label for="Description">Description</label>
+            </div>
+            <div class="k-input">
+                <input id="inputDescription" style="margin-left:10px" data-bind="value:Description">
+            </div>
+        </script>
+    </div>
+
+
+
+</body>
+</html>*@

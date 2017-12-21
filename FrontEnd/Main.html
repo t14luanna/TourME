@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <link rel="stylesheet" href="css/Main.css">
+    <link rel="stylesheet" href="src/jquery-ui-1.12.1/jquery-ui.css" />
+</head>
+
+<body>
+    <div id="tmainMap" class="tmap"></div>
+
+    <div id="navLeftDiv" class="navLeftDiv" onclick="switchDiv('leftDiv')">
+        Search<img src="../Asset/Icons/navicon.png">
+    </div>
+    <div id="navLeftDiv-aboutUs" class="navLeftDiv-AboutUs">
+        About Us<img src="../Asset/Icons/info.png">
+    </div>
+
+    <div id="leftDiv" class="leftDiv">
+
+        <div id="searchDiv" class="searchDiv ui-widget">
+            <input id="tags" class="tSearchInput" type="text" placeholder="Tim dia diem, nha hang, du lich" />
+            <img class="tSearchIcon" src="../Asset/Icons/search.png" />
+        </div>
+        <button class="closeLeftDiv" onclick="switchDiv('leftDiv')"><img src="../Asset/Icons/closeicon.png"/></button>
+        <div class="tSearchContent">
+            <div class="tPlaceInfo">
+                <img class="tPlaceInfo-img" src="../Asset/Images/ho-chi-minh-city-vietnam_71471_990x742.jpg" />
+                <div class="tPlaceInfo-Name">Ho Chi Minh</div>
+                <div class="tPlaceInfo-Type">
+                    Thanh Pho
+                    <div class="divRatingStar">
+                        <img class="ratingstar" src="../Asset/Icons/star.png">
+                        <img class="ratingstar" src="../Asset/Icons/star.png">
+                        <img class="ratingstar" src="../Asset/Icons/star.png">
+                        <img class="ratingstar" src="../Asset/Icons/star.png">
+                        <img class="ratingstar" src="../Asset/Icons/star.png">
+                    </div>
+
+                </div>
+                <section class="wrapper">
+                    <ul class="tabs">
+                        <li class="active">Thong tin</li>
+                        <li>Su Kien</li>
+                        <li>Lien quan</li>
+                    </ul>
+
+                    <ul class="tab__content">
+                        <li class="active">
+                            <div class="content__wrapper">
+                                <div class="tPlaceInfo-address infoblock">
+                                    <img class="ticon" src="../Asset/Icons/marker.png" />&nbsp; 55, Phố Huế, P. Ngô Thì Nhậm, Q. Hai Bà Trưng, Tp. Hà Nội
+                                </div>
+                                <div class="tPlaceInfo-contact infoblock">
+                                    <img class="ticon" src="../Asset/Icons/Phone.png" />&nbsp; thành phố được chia thành 19 quận và 5 huyện. Trong đó có 322 đơn vị hành chính cấp xã, bao gồm 259 phường, 58 xã và 5 thị trấn[62].
+                                </div>
+                                <div class="tPlaceInfo-contact infoblock">
+                                    <img class="ticon" src="../Asset/Icons/link.png" />&nbsp;
+                                    <a href="http://www.hcm.org">www.hcm.org</a>
+                                </div>
+                                <div class="tPlaceInfo-description infoblock">
+                                    Pan-Asian cuisine served at reasonable prices with a menu in both English and Vietnamese. Pan-Asian cuisine served at reasonable prices with a menu in both English and Vietnamese. Pan-Asian cuisine served at reasonable prices with a menu in both English and Vietnamese. Pan-Asian cuisine served at reasonable prices with a menu in both English and Vietnamese. Pan-Asian cuisine served at reasonable prices with a menu in both English and Vietnamese.
+                                </div>
+                                <div class="tline"></div>
+                                <div class="tPlaceInfo-comment infoblock">
+                                    Danh gia cua nguoi dung: <br/> Pan-Asian cuisine served at reasonable prices with a menu in both English and Vietnamese.
+                                </div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="content__wrapper">
+                                <div class="eventBlock graybg" onclick="openDetail('#ed1')">
+                                    Le Hoi Canival
+                                    <div class="eventDate">22/12/2017</div>
+                                    <div id="ed1" class="eventDetail">asdasda adasda asda sda dawd asdas dasda asda d a</div>
+                                </div>
+                                <div class="eventBlock" onclick="openDetail('#ed2')">
+                                    Le Hoi Canival
+                                    <div class="eventDate">22/12/2017</div>
+                                    <div id="ed2" class="eventDetail">asdasda adasda asda sda dawd asdas dasda asda d a</div>
+                                </div>
+                                <div class="eventBlock graybg">
+                                    Le Hoi Canival
+                                    <div class="eventDate">22/12/2017</div>
+                                    <div class="eventDetail">asdasda adasda asda sda dawd asdas dasda asda d a</div>
+                                </div>
+                                <div class="eventBlock">
+                                    Le Hoi Canival
+                                    <div class="eventDate">22/12/2017</div>
+                                    <div class="eventDetail">asdasda adasda asda sda dawd asdas dasda asda d a</div>
+                                </div>
+
+
+                            </div>
+                        </li>
+                        <li>
+                            <div class="content__wrapper">
+                                <h2 class="text-color">Cac dia diem gan day</h2>
+                                <div class="eventBlock graybg" onclick="openDetail('#ed1')">
+                                    Le Hoi Canival
+                                    <div class="eventDate">22/12/2017</div>
+                                    <div id="ed1" class="eventDetail">asdasda adasda asda sda dawd asdas dasda asda d a</div>
+                                </div>
+                                <div class="eventBlock" onclick="openDetail('#ed2')">
+                                    Le Hoi Canival
+                                    <div class="eventDate">22/12/2017</div>
+                                    <div id="ed2" class="eventDetail">asdasda adasda asda sda dawd asdas dasda asda d a</div>
+                                </div>
+
+                            </div>
+                        </li>
+                    </ul>
+                </section>
+            </div>
+        </div>
+    </div>
+
+    <section for="rightDiv">
+        <div id="navrightDiv-tourBook" class="navrightDiv-tourBook" onclick="switchDiv('rightDiv-tourBook')">
+            Tour Book<img src="../Asset/Icons/book.png" />
+        </div>
+        <div id="rightDiv-tourBook" class="rightDiv-tourbook">
+            <button class="closerightDiv-tourBook" onclick="switchDiv('rightDiv-tourBook')">
+                <img src="../Asset/Icons/closeicon.png"/>
+            </button>
+            <div id="tourBook-nav" class="tourBook-nav">Your tour books</div>
+            <div id="tourBook-content" class="tourBook-content">
+                <div class="lineblock">Dia diem 1<img class="deleteTourBookLine" src="../Asset/Icons/close.png"/></div>
+                <div class="lineblock">Dia diem 2<img class="deleteTourBookLine" src="../Asset/Icons/close.png"/></div>
+                <div class="lineblock">Dia diem 3<img class="deleteTourBookLine" src="../Asset/Icons/close.png"/></div>
+                <div class="lineblock">Dia diem 4<img class="deleteTourBookLine" src="../Asset/Icons/close.png"/></div>
+                <div class="lineblock">Dia diem 5<img class="deleteTourBookLine" src="../Asset/Icons/close.png"/></div>
+            </div>
+        </div>
+
+        <div id="navrightDiv-direction" class="navrightDiv-direction" onclick="switchDiv('rightDiv-direction')">
+            Direction<img src="../Asset/Icons/direction.png">
+        </div>
+        <div id="rightDiv-direction" class="rightDiv-direction" onclick="switch('rightDiv-direction')">
+            <button class="closerightDiv-direction" onclick="switchDiv('rightDiv-direction')">
+                <img src="../Asset/Icons/closeicon.png"/>
+            </button>
+            <div id="direction-nav" class="direction-nav">Direction</div>
+            <div id="direction-content" class="direction-content"></div>
+        </div>
+    </section>
+
+    <script type="text/javascript" src="src/jquery-3.2.1.min.js"></script>
+    <script src="src/jquery-ui-1.12.1/jquery-ui.min.js"></script>
+    <script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyAlFgrrMbkJAOVTXffgqnV6syXZ1A8yaq8&&libraries=places"></script>
+    <script src="js/google-map-api.js"></script>
+    <script src="js/google-map-direction-api.js"></script>
+    <script src="js/google-map-nearby-api.js"></script>
+    <script src="js/google-map-autocomplete-api.js"></script>
+    <script src="js/Main.js"></script>
+
+</body>
+
+</html>
